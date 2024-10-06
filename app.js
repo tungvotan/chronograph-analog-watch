@@ -3,6 +3,7 @@ const hourHand = document.querySelector('.hour-hand');
 const minuteHand = document.querySelector('.minute-hand');
 const mainSecondHand = document.querySelector('.main-second-hand');
 const subSecondHand = document.querySelector('.sub-second-hand');
+const chronoMinuteHand = document.querySelector('.chrono-minute-hand');
 
 // Start the real-time second hand
 function startRealTimeSecondHand() {
@@ -43,3 +44,53 @@ function createHourMarks() {
 }
 
 createHourMarks();
+
+let intervalChronograph;
+let chronographSeconds = 0;
+let chronographMinutes = 0;
+const startButton = document.getElementById('start-btn');
+const stopButton = document.getElementById('stop-btn');
+const resetButton = document.getElementById('reset-btn');
+// Start the chronograph timer
+startButton.addEventListener('click', () => {
+  if (!intervalChronograph) {
+    intervalChronograph = setInterval(startChronograph, 250);
+  }
+});
+
+// Stop the chronograph timer
+stopButton.addEventListener('click', () => {
+  clearInterval(intervalChronograph);
+  intervalChronograph = null;
+});
+
+// Reset the chronograph timer
+resetButton.addEventListener('click', () => {
+  clearInterval(intervalChronograph);
+  intervalChronograph = null;
+  chronographSeconds = 0;
+  chronographMinutes = 0;
+  updateHands();
+});
+
+// Chronograph function for main second hand
+function startChronograph() {
+  chronographSeconds++;
+  if (chronographSeconds / 4 === 60) {
+    chronographSeconds = 0;
+    chronographMinutes++;
+  }
+
+  if (chronographMinutes === 30) {
+    chronoMinuteMinutes = 0;
+  }
+
+  updateHands();
+}
+
+function updateHands() {
+  const secondDegrees = (chronographSeconds / 60 / 4) * 360;
+  const chronoMinuteDegree = (chronographMinutes / 30) * 360;
+  mainSecondHand.style.transform = `rotate(${secondDegrees}deg)`;
+  chronoMinuteHand.style.transform = `rotate(${chronoMinuteDegree}deg)`;
+}
