@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.dial {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 10px solid #ccc;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  height: 50%;
+  background-color: black;
+  transform-origin: bottom;
+}
+
+.hour-hand {
+  width: 4px;
+  height: 25%;
+}
+
+.minute-hand {
+  width: 3px;
+  height: 40%;
+}
+
+.main-second-hand {
+  width: 2px;
+  height: 45%;
+  background-color: red;
+}
+
+.hour-mark {
+  position: absolute;
+  width: 4px;
+  height: 15px;
+  background: #333;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 50%;
+}
+
+.sub-dial {
+  position: absolute;
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.sub-second-hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 1px;
+  height: 45%;
+  background-color: black;
+  transform-origin: bottom;
+}
