@@ -2,6 +2,7 @@ let realTimeInterval;
 const hourHand = document.querySelector('.hour-hand');
 const minuteHand = document.querySelector('.minute-hand');
 const mainSecondHand = document.querySelector('.main-second-hand');
+const subSecondHand = document.querySelector('.sub-second-hand');
 
 // Start the real-time second hand
 function startRealTimeSecondHand() {
@@ -11,7 +12,7 @@ function startRealTimeSecondHand() {
 
   const seconds = realTime.getSeconds();
   const realSecondDegrees = ((seconds + roundedSecondResult) / 60) * 360;
-  mainSecondHand.style.transform = `rotate(${realSecondDegrees}deg)`;
+  subSecondHand.style.transform = `rotate(${realSecondDegrees}deg)`;
   const minutes = realTime.getMinutes();
   const minuteDegrees = ((minutes + seconds / 60) / 60) * 360;
   minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
