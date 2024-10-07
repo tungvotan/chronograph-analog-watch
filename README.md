@@ -1,6 +1,7 @@
 # Chronograph Analog Watch with VanillaJS + HTML
 
 This project demonstrates how to build a functional **chronograph analog watch** from scratch using **Vanilla JavaScript (JS)** and **HTML**. It simulates a real-time analog clock and chronograph (stopwatch) with start, stop, and reset functionality.
+
 <img width="353" alt="image" src="https://github.com/user-attachments/assets/b417a4d0-c6b9-42d2-8dd2-f089b11be7c5">
 
 
